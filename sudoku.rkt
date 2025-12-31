@@ -1,13 +1,7 @@
 ;; The first three lines of this file were inserted by DrRacket. They record metadata
 ;; about the language level of this file in a form that our tools can easily process.
 #reader(lib "htdp-intermediate-lambda-reader.ss" "lang")((modname sudoku) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor mixed-fraction #f #t none #f () #t)))
-;;
-;; ***************************************************
-;; Zain Bughio (21199539)
-;; CS 135 Fall 2025
-;; Assignment 10, Problem 1
-;; ***************************************************
-;;
+
 
 
 ;; A (matrixof X) is a (listof (listof X))

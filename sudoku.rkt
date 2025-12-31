@@ -7,26 +7,18 @@
 ;; A (matrixof X) is a (listof (listof X))
 ;; Requires: all (listof X) have the same length.
 
-;;
-;;question 1, part a
-;;
+
 ;; all-satisfy? is a function that produces true if every value in the matrix satisfies the given pred
 (define (all-satisfy? pred matrix)
   (local [(define (row-works cur-row)
             (foldr (lambda (x sofar) (and (pred x) sofar)) true cur-row))]
     (foldr (lambda (row sofar) (and (row-works row) sofar)) true matrix)))
 
-;;
-;;question 1, part b
-;;
+
 ;; any-satisfy? checks to see if any value satisfies the given pred
 (define (any-satisfy? pred matrix)
   (not (all-satisfy? (lambda (x) (not (pred x))) matrix)))
 
-;;
-;;question 1, part c
-;;
-;;
 
 (define (find-where pred matrix)
   (local [(define (row-scanner row row-index col-index acc)
@@ -43,10 +35,7 @@
 
 
 
-;;
-;;question 2
-;;
-;; 
+
 (define (strings->puzzle strs)
   (map (lambda (s) (local [(define row-size (string-length s))
        (define (char->cell c)
@@ -54,10 +43,7 @@
             [true (list (- (char->integer c) 48))]))]
        (map char->cell (string->list s)))) strs))
 
-;;
-;;question 3
-;;
-;;
+
 ;; Removes single values by filling them in and removing from row/column
 ;; repeats until no singles remain
 
@@ -122,10 +108,7 @@
     (solve puzzle)))
 
 
-;;
-;;question 4
-;;
-;;
+
 ;; solve-latin: (Solution -> Bool) Puzzle -> (anyof Solution empty)
 ;; Ignore the parameter; always produce true.
 ;; yes: Any -> Bool
@@ -191,10 +174,7 @@
                    [else empty]))]))]
     (solve simplified)))
 
-;;
-;;question 5
-;;
-;;
+
 (define (sudoku? solution)
   (local [(define (grab-subsquare sol row-start col-start)
        (local [
